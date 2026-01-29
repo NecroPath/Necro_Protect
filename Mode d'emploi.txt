@@ -1,0 +1,48 @@
+Voici ton Petit Guide d'Utilisation Rapide (le "Quick Start"). C'est le genre de fichier que tu mets dans un fichier INSTRUCTIONS.txt ou HELP.pdf directement dans le dossier de ton projet pour ne pas avoir à relire tout le README à chaque fois.
+
+📖 MODE D'EMPLOI : NECRO_RANSO SUITE
+🛠️ PRÉPARATION (À faire une seule fois)
+Générer ta clé : Utilise Fernet.generate_key() pour avoir ta propre clé.
+
+Synchroniser : Copie cette clé dans la variable HARDCODED_KEY des deux scripts (necro_ranso.py et necro_reverseranso.py).
+
+Image : Place ton image d'alerte nommée alerte.jpg dans le même dossier.
+
+📦 COMPILATION (Via Auto-py-to-exe)
+Pour Necro_Ranso (Le Protecteur) :
+
+One File + Window Based (Caché).
+
+Additional Files : Ajouter alerte.jpg.
+
+Advanced : Cocher --uac-admin.
+
+Pour Necro_ReverseRanso (Le Restaurateur) :
+
+One File + Console Based (Pour voir la progression).
+
+Advanced : Cocher --uac-admin.
+
+🚨 EN CAS D'URGENCE (Lancement de la Protection)
+Exécuter Necro_Ranso.exe (en tant qu'administrateur).
+
+Accepter l'UAC : Le programme disparaît immédiatement.
+
+Résultat : Le réseau est coupé, les fichiers sont chiffrés en .locked, et le fond d'écran change.
+
+Sécurité : Le fichier .exe s'autodétruit après 3 secondes.
+
+🟢 PROCÉDURE DE RESTAURATION (Le "Retour à la vie")
+Brancher la clé USB contenant Necro_ReverseRanso.exe.
+
+Lancer le programme (en tant qu'administrateur).
+
+Attendre la fin du scan : Tu verras la liste des fichiers restaurés défiler dans la console.
+
+Fin de l'opération :
+
+Le réseau est rétabli automatiquement.
+
+Le fond d'écran redevient normal.
+
+Un message de confirmation s'affiche.
