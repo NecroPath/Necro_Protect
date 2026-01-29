@@ -25,54 +25,57 @@ Alerte Visuelle : Remplace le fond d'écran système par une image d'alerte (ale
 
 Suicide du Processus : Suppression automatique du fichier exécutable après la fin des opérations pour empêcher l'analyse immédiate de la clé.
 
-2. Necro_Resurrection.exe (L'Agent de Restauration)
-Le remède unique. Ce script est destiné à être conservé hors-ligne (clé USB) :
+2. Necro_ReverseRanso.exe (L'Agent de Résurrection)
+Le remède unique. Ce script est destiné à être conservé hors-ligne (clé USB de secours) pour rétablir l'ordre :
 
-Réactivation Réseau : Relance les interfaces via ipconfig /renew.
+Réactivation Réseau : Relance les interfaces via ipconfig /renew pour sortir le serveur de son isolation.
 
 Déchiffrement Récursif : Parcourt les répertoires pour inverser le chiffrement AES et restaurer les extensions originales.
 
-Nettoyage Forensique : Supprime les notes de rançon défensives et les artefacts de protection.
+Nettoyage Forensique : Supprime les notes de rançon défensives (RECOVERY_INSTRUCTIONS.txt) et les artefacts de protection.
 
-Resurrection visuelle : Restaure le fond d'écran d'origine de Windows.
+Résurrection Visuelle : Restaure le fond d'écran d'origine de Windows pour signaler la fin de l'état d'urgence.
 
 📂 Structure du Projet
 Plaintext
-├── necro_ranso.py         # Code source du verrouilleur
-├── necro_recover.py       # Code source du restaurateur
-├── alerte.jpg             # Image d'alerte (à inclure dans le build)
-├── requirements.txt       # Dépendances Python
-└── build/                 # Dossier des exécutables compilés
+├── necro_ranso.py           # Code source du verrouilleur
+├── necro_reverseranso.py    # Code source du restaurateur (Recovery)
+├── alerte.jpg               # Image d'alerte (à inclure dans le binaire)
+├── requirements.txt         # Dépendances (cryptography)
+└── build/                   # Dossier des exécutables compilés (.exe)
 🚀 Guide de Compilation (Deployment)
-Pour une efficacité maximale, les scripts doivent être compilés avec Auto-py-to-exe ou PyInstaller pour être indépendants de l'installation de Python sur la cible.
+Pour une efficacité maximale, les scripts doivent être compilés avec Auto-py-to-exe ou PyInstaller.
 
 Paramètres de build recommandés :
-One File : Coché (toutes les libs et l'image sont packagées).
+One File : Packagé en un seul binaire.
 
-Window Based : Coché (pas de fenêtre CMD).
+Window Based : Pas de fenêtre CMD pour la discrétion (surtout pour l'agent de verrouillage).
 
 Additional Files : Ajouter alerte.jpg avec le chemin de destination ..
 
-Advanced : Cocher --uac-admin pour garantir les droits système.
+Advanced : Cocher --uac-admin (Indispensable pour le réseau et les fichiers système).
 
 Bash
-# Commande PyInstaller manuelle
+# Commande pour Necro_Ranso
 pyinstaller --onefile --noconsole --uac-admin --add-data "alerte.jpg;." necro_ranso.py
+
+# Commande pour Necro_ReverseRanso
+pyinstaller --onefile --console --uac-admin necro_reverseranso.py
 🔑 Configuration de la Clé de Sécurité
 La sécurité repose sur la clé Fernet stockée dans la variable HARDCODED_KEY.
 
-Note : En cas de perte de cette clé, les données sont mathématiquement irrécupérables.
+Attention : En cas de perte de cette clé, les données sont mathématiquement irrécupérables. Elle doit être la même dans les deux scripts.
 
 Python
-# Exemple de génération de clé sécurisée pour votre repo :
+# Générer une nouvelle clé pour votre déploiement :
 from cryptography.fernet import Fernet
 print(Fernet.generate_key().decode())
 🛡️ Cas d'Usage
-Serveurs isolés (Air-gapped) : Protection des secrets industriels.
+Protection de serveurs sensibles : Verrouillage en cas d'intrusion réseau confirmée.
 
-Postes de travail sensibles : Verrouillage en cas de vol physique du matériel.
+Défense Anti-Forensics : Rendre les données inutilisables si le matériel est saisi ou volé.
 
-Honey-Pots : Attirer un attaquant et verrouiller les données avant qu'il ne comprenne le piège.
+Isolation d'urgence : Coupure réseau et chiffrement en un seul clic.
 
 📜 Licence & Disclaimer
-Ce projet est publié sous licence MIT. L'usage de cet outil est sous votre entière responsabilité. Necro_Ranso est un outil puissant de "terre brûlée" ; testez-le toujours dans une machine virtuelle (VM) avant tout déploiement en production
+Ce projet est publié sous licence MIT. L'usage de cet outil est sous votre entière responsabilité. Necro_Ranso est un outil de "terre brûlée" ; testez-le toujours dans une machine virtuelle (VM) avant tout déploiement en production.
